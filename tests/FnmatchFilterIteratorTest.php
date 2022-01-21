@@ -14,13 +14,14 @@ class FnmatchFilterIteratorTest extends TestCase
         $pattern,
         $flags,
         $expectedFlags,
-        $expectedResultKeys)
-    {
+        $expectedResultKeys
+    ) {
         if (!($iterator instanceof \Iterator)) {
             $iterator = new \ArrayIterator($iterator);
         }
 
-        $filterIterator = new FnmatchFilterIterator($iterator, $pattern,$flags);
+        $filterIterator =
+            new FnmatchFilterIterator($iterator, $pattern, $flags);
 
         $this->assertSame($iterator, $filterIterator->getInnerIterator());
 
@@ -36,7 +37,7 @@ class FnmatchFilterIteratorTest extends TestCase
 
         sort($resultKeys);
 
-        $this->assertSame($resultKeys, $expectedResultKeys);
+        $this->assertSame($expectedResultKeys, $resultKeys);
     }
 
     public function basicsProvider()
